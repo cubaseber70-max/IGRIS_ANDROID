@@ -52,3 +52,10 @@ jobs:
           name: IGRIS-APK
           path: bin/*.apk
           if-no-files-found: error
+      - name: Guardar registros de compilacion
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: IGRIS-REGISTROS
+          path: .buildozer/android/platform/build-arm64-v8a/
+          if-no-files-found: warn
