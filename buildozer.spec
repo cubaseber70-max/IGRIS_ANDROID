@@ -15,5 +15,7 @@ android.archs = arm64-v8a
 android.allow_backup = True
 
 [buildozer]
+p4a.branch = develop
+android.ndk = 28c
 log_level = 2
 warn_on_root = 1
