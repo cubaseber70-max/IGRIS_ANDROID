@@ -42,9 +42,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install buildozer cython==0.29.36
 
-      - name: Compilar APK
+            - name: Compilar APK
         run: |
-          yes | buildozer -v android debug
+          yes | buildozer -v android debug > buildozer.log 2>&1
 
       - name: Guardar APK
         uses: actions/upload-artifact@v4
@@ -52,10 +52,10 @@ jobs:
           name: IGRIS-APK
           path: bin/*.apk
           if-no-files-found: error
-      - name: Guardar registros de compilacion
+           - name: Guardar registros de compilacion
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: IGRIS-REGISTROS
-          path: .buildozer/android/platform/build-arm64-v8a/
+          path: buildozer.log
           if-no-files-found: warn
